@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<% include templates/header.ejs %>
+
+<a href='/'> Home Page</a>
+
+<p>
+<h3><% if( typeof data[0].main === "undefined") { %></h3>
+<h2>NOT A VALID CITY. <%}%></h2>
+
+<p><%if( typeof data[0].main != "undefined" && typeof data[1].data.current_condition[0] != "undefined") {%>
+<h3>Open Weather API</h3>
+<input type="text" name="OWTemp" id="txtOW" value="<%= (data[0].main.temp - 273).toFixed(2)%>">
+<td>
+    <h3>World Weather API</h3>
+    <input type="text" name="WWTemp" id="txtWW" value="<%= data[1].data.current_condition[0].temp_C%>">
+</td>
+</p>
+<p>
+<h3>Average</h3>
+<input type="text" name="Average" id="txtAvg" value="<%= ((parseFloat((data[0].main.temp - 273).toFixed(2)) + parseFloat(data[1].data.current_condition[0].temp_C))/2).toFixed(2)%>">
+<%}%>
+</p>
+
+
+</body>
+</html>

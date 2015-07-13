@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<% include templates/header.ejs %>
+
+<a href='/'> Home Page</a>
+
+<h2> Get Weather Information</h2>
+
+<form action="/temperature" method="get" >
+    <p>
+        <label>City</label>
+        <input type='text' placeholder='Enter City' name='newcity'>
+    </p>
+    <input type='submit' value='Submit' id="btnSubmit">
+</form>
+
+</body>
+</html>
